@@ -1,0 +1,769 @@
+First Come First Serve
+5 jobs
+
+	Table:
+	+---------------+-------------------------------+
+	| Job #         | Job01 Job02 Job03 Job04 Job05 |
+	+---------------+-------------------------------+
+	| BurstTime (ms)|   8     8     18    1     13  |
+	+---------------+-------------------------------+
+
+	Schedule Table
+	+-------+------------+----------+------------------------+
+	| Job # | Start Time | End Time | Job Completion         | 
+	+-------+------------+----------+------------------------+
+	| Job01 |     0      |    8     | Job01 completed @ 8    |
+	| Job02 |     8      |    16    | Job02 completed @ 16   |
+	| Job03 |     16     |    34    | Job03 completed @ 34   |
+	| Job04 |     34     |    35    | Job04 completed @ 35   |
+	| Job05 |     35     |    48    | Job05 completed @ 48   |
+	+-------+------------+----------+------------------------+
+
+	First Come First Serve Job Order:
+	
+		[  Job01  Job02  Job03  Job04  Job05  ]
+
+
+	Average Turnaround Time:
+	28.2 ms
+
+
+
+10 jobs
+
+	Table:
+	+---------------+-------------------------------------------------------------+
+	| Job #         | Job01 Job02 Job03 Job04 Job05 Job06 Job07 Job08 Job09 Job10 |
+	+---------------+-------------------------------------------------------------+
+	| BurstTime (ms)|   8     8     18    1     13    17    12    14    8     17  |
+	+---------------+-------------------------------------------------------------+
+
+	Schedule Table
+	+-------+------------+----------+------------------------+
+	| Job # | Start Time | End Time | Job Completion         | 
+	+-------+------------+----------+------------------------+
+	| Job01 |     0      |    8     | Job01 completed @ 8    |
+	| Job02 |     8      |    16    | Job02 completed @ 16   |
+	| Job03 |     16     |    34    | Job03 completed @ 34   |
+	| Job04 |     34     |    35    | Job04 completed @ 35   |
+	| Job05 |     35     |    48    | Job05 completed @ 48   |
+	| Job06 |     48     |    65    | Job06 completed @ 65   |
+	| Job07 |     65     |    77    | Job07 completed @ 77   |
+	| Job08 |     77     |    91    | Job08 completed @ 91   |
+	| Job09 |     91     |    99    | Job09 completed @ 99   |
+	| Job10 |     99     |    116   | Job10 completed @ 116  |
+	+-------+------------+----------+------------------------+
+
+	First Come First Serve Job Order:
+	
+		[  Job01  Job02  Job03  Job04  Job05  Job06  Job07  Job08  Job09  Job10  ]
+
+
+	Average Turnaround Time:
+	58.9 ms
+
+
+
+15 jobs
+
+	Table:
+	+---------------+-------------------------------------------------------------------------------------------+
+	| Job #         | Job01 Job02 Job03 Job04 Job05 Job06 Job07 Job08 Job09 Job10 Job11 Job12 Job13 Job14 Job15 |
+	+---------------+-------------------------------------------------------------------------------------------+
+	| BurstTime (ms)|   8     8     18    1     13    17    12    14    8     17    19    8     12    3     11  |
+	+---------------+-------------------------------------------------------------------------------------------+
+
+	Schedule Table
+	+-------+------------+----------+------------------------+
+	| Job # | Start Time | End Time | Job Completion         | 
+	+-------+------------+----------+------------------------+
+	| Job01 |     0      |    8     | Job01 completed @ 8    |
+	| Job02 |     8      |    16    | Job02 completed @ 16   |
+	| Job03 |     16     |    34    | Job03 completed @ 34   |
+	| Job04 |     34     |    35    | Job04 completed @ 35   |
+	| Job05 |     35     |    48    | Job05 completed @ 48   |
+	| Job06 |     48     |    65    | Job06 completed @ 65   |
+	| Job07 |     65     |    77    | Job07 completed @ 77   |
+	| Job08 |     77     |    91    | Job08 completed @ 91   |
+	| Job09 |     91     |    99    | Job09 completed @ 99   |
+	| Job10 |     99     |    116   | Job10 completed @ 116  |
+	| Job11 |     116    |    135   | Job11 completed @ 135  |
+	| Job12 |     135    |    143   | Job12 completed @ 143  |
+	| Job13 |     143    |    155   | Job13 completed @ 155  |
+	| Job14 |     155    |    158   | Job14 completed @ 158  |
+	| Job15 |     158    |    169   | Job15 completed @ 169  |
+	+-------+------------+----------+------------------------+
+
+	First Come First Serve Job Order:
+	
+		[  Job01  Job02  Job03  Job04  Job05  Job06  Job07  Job08  Job09  Job10  
+		   Job11  Job12  Job13  Job14  Job15  ]
+
+
+	Average Turnaround Time:
+	89.93 ms
+
+
+
+Shortest Job First
+5 jobs
+
+	Table:
+	+---------------+-------------------------------+
+	| Job #         | Job01 Job02 Job03 Job04 Job05 |
+	+---------------+-------------------------------+
+	| BurstTime (ms)|   8     8     18    1     13  |
+	+---------------+-------------------------------+
+
+	Schedule Table
+	+-------+------------+----------+------------------------+
+	| Job # | Start Time | End Time | Job Completion         | 
+	+-------+------------+----------+------------------------+
+	| Job04 |     0      |    1     | Job04 completed @ 1    |
+	| Job01 |     1      |    9     | Job01 completed @ 9    |
+	| Job02 |     9      |    17    | Job02 completed @ 17   |
+	| Job05 |     17     |    30    | Job05 completed @ 30   |
+	| Job03 |     30     |    48    | Job03 completed @ 48   |
+	+-------+------------+----------+------------------------+
+
+	Shortest Job First order:
+	
+		[  Job04  Job01  Job02  Job05  Job03  ]
+
+
+	Average Turnaround time:
+	21 ms
+
+
+10 jobs
+
+	Table:
+	+---------------+-------------------------------------------------------------+
+	| Job #         | Job01 Job02 Job03 Job04 Job05 Job06 Job07 Job08 Job09 Job10 |
+	+---------------+-------------------------------------------------------------+
+	| BurstTime (ms)|   8     8     18    1     13    17    12    14    8     17  |
+	+---------------+-------------------------------------------------------------+
+
+	Schedule Table
+	+-------+------------+----------+------------------------+
+	| Job # | Start Time | End Time | Job Completion         | 
+	+-------+------------+----------+------------------------+
+	| Job04 |     0      |    1     | Job04 completed @ 1    |
+	| Job01 |     1      |    9     | Job01 completed @ 9    |
+	| Job02 |     9      |    17    | Job02 completed @ 17   |
+	| Job09 |     17     |    25    | Job09 completed @ 25   |
+	| Job07 |     25     |    37    | Job07 completed @ 37   |
+	| Job05 |     37     |    50    | Job05 completed @ 50   |
+	| Job08 |     50     |    64    | Job08 completed @ 64   |
+	| Job06 |     64     |    81    | Job06 completed @ 81   |
+	| Job10 |     81     |    98    | Job10 completed @ 98   |
+	| Job03 |     98     |    116   | Job03 completed @ 116  |
+	+-------+------------+----------+------------------------+
+
+	Shortest Job First order:
+	
+		[  Job04  Job01  Job02  Job09  Job07  Job05  Job08  Job06  Job10  Job03  ]
+
+
+	Average Turnaround time:
+	49.8 ms
+
+
+15 jobs
+
+	Table:
+	+---------------+-------------------------------------------------------------------------------------------+
+	| Job #         | Job01 Job02 Job03 Job04 Job05 Job06 Job07 Job08 Job09 Job10 Job11 Job12 Job13 Job14 Job15 |
+	+---------------+-------------------------------------------------------------------------------------------+
+	| BurstTime (ms)|   8     8     18    1     13    17    12    14    8     17    19    8     12    3     11  |
+	+---------------+-------------------------------------------------------------------------------------------+
+
+	Schedule Table
+	+-------+------------+----------+------------------------+
+	| Job # | Start Time | End Time | Job Completion         | 
+	+-------+------------+----------+------------------------+
+	| Job04 |     0      |    1     | Job04 completed @ 1    |
+	| Job14 |     1      |    4     | Job14 completed @ 4    |
+	| Job01 |     4      |    12    | Job01 completed @ 12   |
+	| Job02 |     12     |    20    | Job02 completed @ 20   |
+	| Job09 |     20     |    28    | Job09 completed @ 28   |
+	| Job12 |     28     |    36    | Job12 completed @ 36   |
+	| Job15 |     36     |    47    | Job15 completed @ 47   |
+	| Job07 |     47     |    59    | Job07 completed @ 59   |
+	| Job13 |     59     |    71    | Job13 completed @ 71   |
+	| Job05 |     71     |    84    | Job05 completed @ 84   |
+	| Job08 |     84     |    98    | Job08 completed @ 98   |
+	| Job06 |     98     |    115   | Job06 completed @ 115  |
+	| Job10 |     115    |    132   | Job10 completed @ 132  |
+	| Job03 |     132    |    150   | Job03 completed @ 150  |
+	| Job11 |     150    |    169   | Job11 completed @ 169  |
+	+-------+------------+----------+------------------------+
+
+	Shortest Job First order:
+	
+		[  Job04  Job14  Job01  Job02  Job09  Job12  Job15  Job07  Job13  Job05  
+		   Job08  Job06  Job10  Job03  Job11  ]
+
+
+	Average Turnaround time:
+	68.4 ms
+
+
+Round-Robin with time slice = 2
+5 jobs
+
+	Table:
+	+---------------+-------------------------------+
+	| Job #         | Job01 Job02 Job03 Job04 Job05 |
+	+---------------+-------------------------------+
+	| BurstTime (ms)|   8     8     18    1     13  |
+	+---------------+-------------------------------+
+
+	Schedule Table
+	+-------+------------+----------+------------------------+
+	| Job # | Start Time | End Time | Job Completion         | 
+	+-------+------------+----------+------------------------+
+	| Job01 |     0      |    2     |                        |
+	| Job02 |     2      |    4     |                        |
+	| Job03 |     4      |    6     |                        |
+	| Job04 |     6      |    7     | Job04 completed @ 7    |
+	| Job05 |     7      |    9     |                        |
+	| Job01 |     9      |    11    |                        |
+	| Job02 |     11     |    13    |                        |
+	| Job03 |     13     |    15    |                        |
+	| Job05 |     15     |    17    |                        |
+	| Job01 |     17     |    19    |                        |
+	| Job02 |     19     |    21    |                        |
+	| Job03 |     21     |    23    |                        |
+	| Job05 |     23     |    25    |                        |
+	| Job01 |     25     |    27    | Job01 completed @ 27   |
+	| Job02 |     27     |    29    | Job02 completed @ 29   |
+	| Job03 |     29     |    31    |                        |
+	| Job05 |     31     |    33    |                        |
+	| Job03 |     33     |    35    |                        |
+	| Job05 |     35     |    37    |                        |
+	| Job03 |     37     |    39    |                        |
+	| Job05 |     39     |    41    |                        |
+	| Job03 |     41     |    43    |                        |
+	| Job05 |     43     |    44    | Job05 completed @ 44   |
+	| Job03 |     44     |    46    |                        |
+	| Job03 |     46     |    48    | Job03 completed @ 48   |
+	+-------+------------+----------+------------------------+
+
+	Round-Robin with time slice = 2 order:
+	
+		[  Job01  Job02  Job03  Job04  Job05  Job01  Job02  Job03  Job05  Job01  
+		   Job02  Job03  Job05  Job01  Job02  Job03  Job05  Job03  Job05  Job03  Job05  
+		   Job03  Job05  Job03  Job03  ]
+
+
+	Round-Robin Order Completed:
+	
+		[  Job04  Job01  Job02  Job05  Job03  ]
+
+
+	Average Turnaround Time:
+	31 ms
+
+
+
+10 jobs
+
+	Table:
+	+---------------+-------------------------------------------------------------+
+	| Job #         | Job01 Job02 Job03 Job04 Job05 Job06 Job07 Job08 Job09 Job10 |
+	+---------------+-------------------------------------------------------------+
+	| BurstTime (ms)|   8     8     18    1     13    17    12    14    8     17  |
+	+---------------+-------------------------------------------------------------+
+
+	Schedule Table
+	+-------+------------+----------+------------------------+
+	| Job # | Start Time | End Time | Job Completion         | 
+	+-------+------------+----------+------------------------+
+	| Job01 |     0      |    2     |                        |
+	| Job02 |     2      |    4     |                        |
+	| Job03 |     4      |    6     |                        |
+	| Job04 |     6      |    7     | Job04 completed @ 7    |
+	| Job05 |     7      |    9     |                        |
+	| Job06 |     9      |    11    |                        |
+	| Job07 |     11     |    13    |                        |
+	| Job08 |     13     |    15    |                        |
+	| Job09 |     15     |    17    |                        |
+	| Job10 |     17     |    19    |                        |
+	| Job01 |     19     |    21    |                        |
+	| Job02 |     21     |    23    |                        |
+	| Job03 |     23     |    25    |                        |
+	| Job05 |     25     |    27    |                        |
+	| Job06 |     27     |    29    |                        |
+	| Job07 |     29     |    31    |                        |
+	| Job08 |     31     |    33    |                        |
+	| Job09 |     33     |    35    |                        |
+	| Job10 |     35     |    37    |                        |
+	| Job01 |     37     |    39    |                        |
+	| Job02 |     39     |    41    |                        |
+	| Job03 |     41     |    43    |                        |
+	| Job05 |     43     |    45    |                        |
+	| Job06 |     45     |    47    |                        |
+	| Job07 |     47     |    49    |                        |
+	| Job08 |     49     |    51    |                        |
+	| Job09 |     51     |    53    |                        |
+	| Job10 |     53     |    55    |                        |
+	| Job01 |     55     |    57    | Job01 completed @ 57   |
+	| Job02 |     57     |    59    | Job02 completed @ 59   |
+	| Job03 |     59     |    61    |                        |
+	| Job05 |     61     |    63    |                        |
+	| Job06 |     63     |    65    |                        |
+	| Job07 |     65     |    67    |                        |
+	| Job08 |     67     |    69    |                        |
+	| Job09 |     69     |    71    | Job09 completed @ 71   |
+	| Job10 |     71     |    73    |                        |
+	| Job03 |     73     |    75    |                        |
+	| Job05 |     75     |    77    |                        |
+	| Job06 |     77     |    79    |                        |
+	| Job07 |     79     |    81    |                        |
+	| Job08 |     81     |    83    |                        |
+	| Job10 |     83     |    85    |                        |
+	| Job03 |     85     |    87    |                        |
+	| Job05 |     87     |    89    |                        |
+	| Job06 |     89     |    91    |                        |
+	| Job07 |     91     |    93    | Job07 completed @ 93   |
+	| Job08 |     93     |    95    |                        |
+	| Job10 |     95     |    97    |                        |
+	| Job03 |     97     |    99    |                        |
+	| Job05 |     99     |    100   | Job05 completed @ 100  |
+	| Job06 |     100    |    102   |                        |
+	| Job08 |     102    |    104   | Job08 completed @ 104  |
+	| Job10 |     104    |    106   |                        |
+	| Job03 |     106    |    108   |                        |
+	| Job06 |     108    |    110   |                        |
+	| Job10 |     110    |    112   |                        |
+	| Job03 |     112    |    114   | Job03 completed @ 114  |
+	| Job06 |     114    |    115   | Job06 completed @ 115  |
+	| Job10 |     115    |    116   | Job10 completed @ 116  |
+	+-------+------------+----------+------------------------+
+
+	Round-Robin with time slice = 2 order:
+	
+		[  Job01  Job02  Job03  Job04  Job05  Job06  Job07  Job08  Job09  Job10  
+		   Job01  Job02  Job03  Job05  Job06  Job07  Job08  Job09  Job10  Job01  Job02  
+		   Job03  Job05  Job06  Job07  Job08  Job09  Job10  Job01  Job02  Job03  Job05  
+		   Job06  Job07  Job08  Job09  Job10  Job03  Job05  Job06  Job07  Job08  Job10  
+		   Job03  Job05  Job06  Job07  Job08  Job10  Job03  Job05  Job06  Job08  Job10  
+		   Job03  Job06  Job10  Job03  Job06  Job10  ]
+
+
+	Round-Robin Order Completed:
+	
+		[  Job04  Job01  Job02  Job09  Job07  Job05  Job08  Job03  Job06  Job10  ]
+
+
+	Average Turnaround Time:
+	83.6 ms
+
+
+
+15 jobs
+
+	Table:
+	+---------------+-------------------------------------------------------------------------------------------+
+	| Job #         | Job01 Job02 Job03 Job04 Job05 Job06 Job07 Job08 Job09 Job10 Job11 Job12 Job13 Job14 Job15 |
+	+---------------+-------------------------------------------------------------------------------------------+
+	| BurstTime (ms)|   8     8     18    1     13    17    12    14    8     17    19    8     12    3     11  |
+	+---------------+-------------------------------------------------------------------------------------------+
+
+	Schedule Table
+	+-------+------------+----------+------------------------+
+	| Job # | Start Time | End Time | Job Completion         | 
+	+-------+------------+----------+------------------------+
+	| Job01 |     0      |    2     |                        |
+	| Job02 |     2      |    4     |                        |
+	| Job03 |     4      |    6     |                        |
+	| Job04 |     6      |    7     | Job04 completed @ 7    |
+	| Job05 |     7      |    9     |                        |
+	| Job06 |     9      |    11    |                        |
+	| Job07 |     11     |    13    |                        |
+	| Job08 |     13     |    15    |                        |
+	| Job09 |     15     |    17    |                        |
+	| Job10 |     17     |    19    |                        |
+	| Job11 |     19     |    21    |                        |
+	| Job12 |     21     |    23    |                        |
+	| Job13 |     23     |    25    |                        |
+	| Job14 |     25     |    27    |                        |
+	| Job15 |     27     |    29    |                        |
+	| Job01 |     29     |    31    |                        |
+	| Job02 |     31     |    33    |                        |
+	| Job03 |     33     |    35    |                        |
+	| Job05 |     35     |    37    |                        |
+	| Job06 |     37     |    39    |                        |
+	| Job07 |     39     |    41    |                        |
+	| Job08 |     41     |    43    |                        |
+	| Job09 |     43     |    45    |                        |
+	| Job10 |     45     |    47    |                        |
+	| Job11 |     47     |    49    |                        |
+	| Job12 |     49     |    51    |                        |
+	| Job13 |     51     |    53    |                        |
+	| Job14 |     53     |    54    | Job14 completed @ 54   |
+	| Job15 |     54     |    56    |                        |
+	| Job01 |     56     |    58    |                        |
+	| Job02 |     58     |    60    |                        |
+	| Job03 |     60     |    62    |                        |
+	| Job05 |     62     |    64    |                        |
+	| Job06 |     64     |    66    |                        |
+	| Job07 |     66     |    68    |                        |
+	| Job08 |     68     |    70    |                        |
+	| Job09 |     70     |    72    |                        |
+	| Job10 |     72     |    74    |                        |
+	| Job11 |     74     |    76    |                        |
+	| Job12 |     76     |    78    |                        |
+	| Job13 |     78     |    80    |                        |
+	| Job15 |     80     |    82    |                        |
+	| Job01 |     82     |    84    | Job01 completed @ 84   |
+	| Job02 |     84     |    86    | Job02 completed @ 86   |
+	| Job03 |     86     |    88    |                        |
+	| Job05 |     88     |    90    |                        |
+	| Job06 |     90     |    92    |                        |
+	| Job07 |     92     |    94    |                        |
+	| Job08 |     94     |    96    |                        |
+	| Job09 |     96     |    98    | Job09 completed @ 98   |
+	| Job10 |     98     |    100   |                        |
+	| Job11 |     100    |    102   |                        |
+	| Job12 |     102    |    104   | Job12 completed @ 104  |
+	| Job13 |     104    |    106   |                        |
+	| Job15 |     106    |    108   |                        |
+	| Job03 |     108    |    110   |                        |
+	| Job05 |     110    |    112   |                        |
+	| Job06 |     112    |    114   |                        |
+	| Job07 |     114    |    116   |                        |
+	| Job08 |     116    |    118   |                        |
+	| Job10 |     118    |    120   |                        |
+	| Job11 |     120    |    122   |                        |
+	| Job13 |     122    |    124   |                        |
+	| Job15 |     124    |    126   |                        |
+	| Job03 |     126    |    128   |                        |
+	| Job05 |     128    |    130   |                        |
+	| Job06 |     130    |    132   |                        |
+	| Job07 |     132    |    134   | Job07 completed @ 134  |
+	| Job08 |     134    |    136   |                        |
+	| Job10 |     136    |    138   |                        |
+	| Job11 |     138    |    140   |                        |
+	| Job13 |     140    |    142   | Job13 completed @ 142  |
+	| Job15 |     142    |    143   | Job15 completed @ 143  |
+	| Job03 |     143    |    145   |                        |
+	| Job05 |     145    |    146   | Job05 completed @ 146  |
+	| Job06 |     146    |    148   |                        |
+	| Job08 |     148    |    150   | Job08 completed @ 150  |
+	| Job10 |     150    |    152   |                        |
+	| Job11 |     152    |    154   |                        |
+	| Job03 |     154    |    156   |                        |
+	| Job06 |     156    |    158   |                        |
+	| Job10 |     158    |    160   |                        |
+	| Job11 |     160    |    162   |                        |
+	| Job03 |     162    |    164   | Job03 completed @ 164  |
+	| Job06 |     164    |    165   | Job06 completed @ 165  |
+	| Job10 |     165    |    166   | Job10 completed @ 166  |
+	| Job11 |     166    |    168   |                        |
+	| Job11 |     168    |    169   | Job11 completed @ 169  |
+	+-------+------------+----------+------------------------+
+
+	Round-Robin with time slice = 2 order:
+	
+		[  Job01  Job02  Job03  Job04  Job05  Job06  Job07  Job08  Job09  Job10  
+		   Job11  Job12  Job13  Job14  Job15  Job01  Job02  Job03  Job05  Job06  Job07  
+		   Job08  Job09  Job10  Job11  Job12  Job13  Job14  Job15  Job01  Job02  Job03  
+		   Job05  Job06  Job07  Job08  Job09  Job10  Job11  Job12  Job13  Job15  Job01  
+		   Job02  Job03  Job05  Job06  Job07  Job08  Job09  Job10  Job11  Job12  Job13  
+		   Job15  Job03  Job05  Job06  Job07  Job08  Job10  Job11  Job13  Job15  Job03  
+		   Job05  Job06  Job07  Job08  Job10  Job11  Job13  Job15  Job03  Job05  Job06  
+		   Job08  Job10  Job11  Job03  Job06  Job10  Job11  Job03  Job06  Job10  Job11  
+		   Job11  ]
+
+
+	Round-Robin Order Completed:
+	
+		[  Job04  Job14  Job01  Job02  Job09  Job12  Job07  Job13  Job15  Job05  
+		   Job08  Job03  Job06  Job10  Job11  ]
+
+
+	Average Turnaround Time:
+	120.8 ms
+
+
+
+Round-Robin with time slice = 5
+5 jobs
+
+	Table:
+	+---------------+-------------------------------+
+	| Job #         | Job01 Job02 Job03 Job04 Job05 |
+	+---------------+-------------------------------+
+	| BurstTime (ms)|   8     8     18    1     13  |
+	+---------------+-------------------------------+
+
+	Schedule Table
+	+-------+------------+----------+------------------------+
+	| Job # | Start Time | End Time | Job Completion         | 
+	+-------+------------+----------+------------------------+
+	| Job01 |     0      |    5     |                        |
+	| Job02 |     5      |    10    |                        |
+	| Job03 |     10     |    15    |                        |
+	| Job04 |     15     |    16    | Job04 completed @ 16   |
+	| Job05 |     16     |    21    |                        |
+	| Job01 |     21     |    24    | Job01 completed @ 24   |
+	| Job02 |     24     |    27    | Job02 completed @ 27   |
+	| Job03 |     27     |    32    |                        |
+	| Job05 |     32     |    37    |                        |
+	| Job03 |     37     |    42    |                        |
+	| Job05 |     42     |    45    | Job05 completed @ 45   |
+	| Job03 |     45     |    48    | Job03 completed @ 48   |
+	+-------+------------+----------+------------------------+
+
+	Round-Robin with time slice = 5 order:
+	
+		[  Job01  Job02  Job03  Job04  Job05  Job01  Job02  Job03  Job05  Job03  
+		   Job05  Job03  ]
+
+
+	Round-Robin Order Completed:
+	
+		[  Job04  Job01  Job02  Job05  Job03  ]
+
+
+	Average Turnaround Time:
+	32 ms
+
+
+
+10 jobs
+
+	Table:
+	+---------------+-------------------------------------------------------------+
+	| Job #         | Job01 Job02 Job03 Job04 Job05 Job06 Job07 Job08 Job09 Job10 |
+	+---------------+-------------------------------------------------------------+
+	| BurstTime (ms)|   8     8     18    1     13    17    12    14    8     17  |
+	+---------------+-------------------------------------------------------------+
+
+	Schedule Table
+	+-------+------------+----------+------------------------+
+	| Job # | Start Time | End Time | Job Completion         | 
+	+-------+------------+----------+------------------------+
+	| Job01 |     0      |    5     |                        |
+	| Job02 |     5      |    10    |                        |
+	| Job03 |     10     |    15    |                        |
+	| Job04 |     15     |    16    | Job04 completed @ 16   |
+	| Job05 |     16     |    21    |                        |
+	| Job06 |     21     |    26    |                        |
+	| Job07 |     26     |    31    |                        |
+	| Job08 |     31     |    36    |                        |
+	| Job09 |     36     |    41    |                        |
+	| Job10 |     41     |    46    |                        |
+	| Job01 |     46     |    49    | Job01 completed @ 49   |
+	| Job02 |     49     |    52    | Job02 completed @ 52   |
+	| Job03 |     52     |    57    |                        |
+	| Job05 |     57     |    62    |                        |
+	| Job06 |     62     |    67    |                        |
+	| Job07 |     67     |    72    |                        |
+	| Job08 |     72     |    77    |                        |
+	| Job09 |     77     |    80    | Job09 completed @ 80   |
+	| Job10 |     80     |    85    |                        |
+	| Job03 |     85     |    90    |                        |
+	| Job05 |     90     |    93    | Job05 completed @ 93   |
+	| Job06 |     93     |    98    |                        |
+	| Job07 |     98     |    100   | Job07 completed @ 100  |
+	| Job08 |     100    |    104   | Job08 completed @ 104  |
+	| Job10 |     104    |    109   |                        |
+	| Job03 |     109    |    112   | Job03 completed @ 112  |
+	| Job06 |     112    |    114   | Job06 completed @ 114  |
+	| Job10 |     114    |    116   | Job10 completed @ 116  |
+	+-------+------------+----------+------------------------+
+
+	Round-Robin with time slice = 5 order:
+	
+		[  Job01  Job02  Job03  Job04  Job05  Job06  Job07  Job08  Job09  Job10  
+		   Job01  Job02  Job03  Job05  Job06  Job07  Job08  Job09  Job10  Job03  Job05  
+		   Job06  Job07  Job08  Job10  Job03  Job06  Job10  ]
+
+
+	Round-Robin Order Completed:
+	
+		[  Job04  Job01  Job02  Job09  Job05  Job07  Job08  Job03  Job06  Job10  ]
+
+
+	Average Turnaround Time:
+	83.6 ms
+
+
+
+15 jobs
+
+	Table:
+	+---------------+-------------------------------------------------------------------------------------------+
+	| Job #         | Job01 Job02 Job03 Job04 Job05 Job06 Job07 Job08 Job09 Job10 Job11 Job12 Job13 Job14 Job15 |
+	+---------------+-------------------------------------------------------------------------------------------+
+	| BurstTime (ms)|   8     8     18    1     13    17    12    14    8     17    19    8     12    3     11  |
+	+---------------+-------------------------------------------------------------------------------------------+
+
+	Schedule Table
+	+-------+------------+----------+------------------------+
+	| Job # | Start Time | End Time | Job Completion         | 
+	+-------+------------+----------+------------------------+
+	| Job01 |     0      |    5     |                        |
+	| Job02 |     5      |    10    |                        |
+	| Job03 |     10     |    15    |                        |
+	| Job04 |     15     |    16    | Job04 completed @ 16   |
+	| Job05 |     16     |    21    |                        |
+	| Job06 |     21     |    26    |                        |
+	| Job07 |     26     |    31    |                        |
+	| Job08 |     31     |    36    |                        |
+	| Job09 |     36     |    41    |                        |
+	| Job10 |     41     |    46    |                        |
+	| Job11 |     46     |    51    |                        |
+	| Job12 |     51     |    56    |                        |
+	| Job13 |     56     |    61    |                        |
+	| Job14 |     61     |    64    | Job14 completed @ 64   |
+	| Job15 |     64     |    69    |                        |
+	| Job01 |     69     |    72    | Job01 completed @ 72   |
+	| Job02 |     72     |    75    | Job02 completed @ 75   |
+	| Job03 |     75     |    80    |                        |
+	| Job05 |     80     |    85    |                        |
+	| Job06 |     85     |    90    |                        |
+	| Job07 |     90     |    95    |                        |
+	| Job08 |     95     |    100   |                        |
+	| Job09 |     100    |    103   | Job09 completed @ 103  |
+	| Job10 |     103    |    108   |                        |
+	| Job11 |     108    |    113   |                        |
+	| Job12 |     113    |    116   | Job12 completed @ 116  |
+	| Job13 |     116    |    121   |                        |
+	| Job15 |     121    |    126   |                        |
+	| Job03 |     126    |    131   |                        |
+	| Job05 |     131    |    134   | Job05 completed @ 134  |
+	| Job06 |     134    |    139   |                        |
+	| Job07 |     139    |    141   | Job07 completed @ 141  |
+	| Job08 |     141    |    145   | Job08 completed @ 145  |
+	| Job10 |     145    |    150   |                        |
+	| Job11 |     150    |    155   |                        |
+	| Job13 |     155    |    157   | Job13 completed @ 157  |
+	| Job15 |     157    |    158   | Job15 completed @ 158  |
+	| Job03 |     158    |    161   | Job03 completed @ 161  |
+	| Job06 |     161    |    163   | Job06 completed @ 163  |
+	| Job10 |     163    |    165   | Job10 completed @ 165  |
+	| Job11 |     165    |    169   | Job11 completed @ 169  |
+	+-------+------------+----------+------------------------+
+
+	Round-Robin with time slice = 5 order:
+	
+		[  Job01  Job02  Job03  Job04  Job05  Job06  Job07  Job08  Job09  Job10  
+		   Job11  Job12  Job13  Job14  Job15  Job01  Job02  Job03  Job05  Job06  Job07  
+		   Job08  Job09  Job10  Job11  Job12  Job13  Job15  Job03  Job05  Job06  Job07  
+		   Job08  Job10  Job11  Job13  Job15  Job03  Job06  Job10  Job11  ]
+
+
+	Round-Robin Order Completed:
+	
+		[  Job04  Job14  Job01  Job02  Job09  Job12  Job05  Job07  Job08  Job13  
+		   Job15  Job03  Job06  Job10  Job11  ]
+
+
+	Average Turnaround Time:
+	122.6 ms
+
+
+
+5 jobs
+	First Come First Serve: (20 trials)
+	List of all Average Turnaround Times:  
+
+		[  46  42.4  33.4  39.4  30.2  21.2  32.6  29.2  38.6  24.2  
+		   40.8  35.8  26.8  39  47  48.2  40.2  24.8  29.8  44.6  ]
+
+	Overall Average:  35.71 ms
+
+	Shortest Job First: (20 trials)
+	List of all Average Turnaround Times:  
+
+		[  41  37.6  24.4  32.8  27.6  12.8  28.4  26.2  34.6  14.2  
+		   34.4  27.4  25.6  32.2  33.6  41.6  28  14.8  18.2  31.4  ]
+
+	Overall Average:  28.34 ms
+
+	Round-Robin (w/ time slice = 2): (20 trials)
+	List of all Average Turnaround Times:  
+
+		[  66.2  60  38  49.6  41.2  18  45.4  39.4  54.6  20.4  
+		   54.8  41.8  38.4  51.4  52.6  66  45.2  21.4  27  50.2  ]
+
+	Overall Average:  44.08 ms
+
+	Round-Robin (w/ time slice = 5): (20 trials)
+	List of all Average Turnaround Times:  
+
+		[  66  56.8  39.4  51.8  40  19  46  38.2  53.6  20  
+		   56  41.4  36.6  50.8  53.2  67  45.4  21.4  28.6  53  ]
+
+	Overall Average:  44.21 ms
+
+10 jobs
+	First Come First Serve: (20 trials)
+	List of all Average Turnaround Times:  
+
+		[  50.8  64.6  62.3  55.5  57.3  31.2  44.5  35.8  73.2  57.4  
+		   70.5  41.9  35.6  54.7  71.1  39.1  59.9  67.8  38.8  45.1  ]
+
+	Overall Average:  52.855 ms
+
+	Shortest Job First: (20 trials)
+	List of all Average Turnaround Times:  
+
+		[  42.3  40.7  36.3  43.6  46.3  22.7  29.9  30  63.7  33.2  
+		   56.5  26.8  22.8  45  46  31  41.7  51.7  33.1  30.9  ]
+
+	Overall Average:  38.71 ms
+
+	Round-Robin (w/ time slice = 2): (20 trials)
+	List of all Average Turnaround Times:  
+
+		[  68.6  69.8  60.4  74.7  77.3  36.1  50.7  48.9  109.8  56  
+		   98.3  43.9  36.6  76.4  81  50.3  71.5  89.8  53.6  53.3  ]
+
+	Overall Average:  65.35 ms
+
+	Round-Robin (w/ time slice = 5): (20 trials)
+	List of all Average Turnaround Times:  
+
+		[  71.2  68.4  57.4  74.7  78.8  34.2  55.9  42.8  109.6  57.5  
+		   98.6  42.5  37.1  77.2  81.8  45.2  75  88.6  47.6  53.6  ]
+
+	Overall Average:  64.885 ms
+
+15 jobs
+	First Come First Serve: (20 trials)
+	List of all Average Turnaround Times:  
+
+		[  84.2  84.6  87.13  87.13  82.07  86.33  63.93  83.93  83.47  73.67  
+		   84.33  73.33  77.67  94.07  79.87  63.8  77  60.93  67.13  56.13  ]
+
+	Overall Average:  77.536 ms
+
+	Shortest Job First: (20 trials)
+	List of all Average Turnaround Times:  
+
+		[  58.8  61.73  61.47  67.87  59  55.87  50.93  47.07  64.4  62.27  
+		   62.4  52.2  53.87  65.73  62.2  51.53  53.87  43.8  48.33  43.27  ]
+
+	Overall Average:  56.3305 ms
+
+	Round-Robin (w/ time slice = 2): (20 trials)
+	List of all Average Turnaround Times:  
+
+		[  100.2  110.53  110.93  119.73  104.07  101.4  85.8  83  112.6  106.2  
+		   107.53  91.33  93.33  119.93  108.33  83.27  94.53  74.33  83.07  73.47  ]
+
+	Overall Average:  98.179 ms
+
+	Round-Robin (w/ time slice = 5): (20 trials)
+	List of all Average Turnaround Times:  
+
+		[  105.4  112.27  114.33  121.93  98.53  101  82.73  86.2  112.27  104.6  
+		   107.73  93.13  87.87  119.73  107.73  83.4  95.47  74.93  84.4  69.73  ]
+
+	Overall Average:  98.169 ms
+

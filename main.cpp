@@ -1,3 +1,8 @@
+/*
+    Main
+*/
+
+
 #include "test_cases.h"
 
 
@@ -14,6 +19,9 @@ int main(int argc, char const *argv[])
 
     // Run test cases for Round-Robin with time slice = 5 (RR-5)
     test_RR_5();
+
+    // Calcuate the average of Average Turnaround Time of 20 trials
+    calculate_average();
 
     return 0;
 }

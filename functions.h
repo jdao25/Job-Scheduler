@@ -1,11 +1,22 @@
+/*
+    This header file contains all the helper functions.
+
+    Functions such as:
+    createJobFile,
+    displayTables,
+    etc.
+*/
+
+
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
 #include <iostream>
-#include <fstream>
-#include <vector>
-#include <map>
+#include <fstream>  // Read in job.txt
+#include <vector>   // used to store job.txt lines, etc
+#include <map>      // multimap for SJF algorithm since keys are ordered
 #include <ctime>        // rand() srand()
+#include <chrono>       // Also for random numbers. Number generated based on time
 
 #ifdef _WIN32
 #include <string>   // Required in order to use getline for Windows
@@ -18,11 +29,13 @@ std::ostream& operator<<(std::ostream&, const std::vector<T>&);
 
 // Create job.txt file
 void createJobFile(unsigned int);
+void createJobFileTesting(unsigned int);  // Will have different seed values
 
 // Tables
 void generateTable(const std::vector<std::string>&, const std::vector<unsigned int>&);
 void display_FCFS_info(const std::vector<std::string>&, const std::vector<unsigned int>&);
 void display_SJF_info(const std::multimap<unsigned int, std::string>&);
+void display_RR_2_info(const std::vector<std::string>&, const std::vector<unsigned int>&);
 void display_RR_2_info(const std::vector<std::string>&, const std::vector<unsigned int>&);
 
 // Helper functions for generateTable
@@ -38,15 +51,27 @@ std::string spacing3(unsigned int);
 
 // Helper funtions for the scheduling algorithm
 float accumulate(const std::vector<unsigned int>&);
+float accumulate(const std::vector<float>&);
 void ceil(float&);
+void round(float&);
 
 
 template<typename T>
 std::ostream& operator<<(std::ostream& out, const std::vector<T>& jobs)
 {
-    out << "[ ";
-    for (auto it: jobs) std::cout << it << " ";
-    out << "]";
+    unsigned int num = 0;
+
+    out << "\n\t\t[  ";
+    for (auto iter: jobs)
+    {
+        if (num++ > 9)  // So that only 10 numbers will be printed on one line
+        {
+            out << "\n\t\t   ";
+            num = 0;
+        }
+        out << iter << "  ";
+    }
+    out << "]" << std::endl;
 
     return out;
 }
@@ -64,8 +89,34 @@ void createJobFile(unsigned int numJobs)
     for (int job = 1; job <= numJobs; job++)
     {
         // jobName = "Job1", "Job2", "Job3", etc
-        std::string jobName = "Job" + ((job > 9)? std::to_string(job) : "0" + std::to_string(job) );
-        unsigned int burstTime = (rand() % 5) + 1; // Randomly assigning burst time in ms
+        std::string jobName = "Job" + ((job < 10)? "0" + std::to_string(job) : std::to_string(job) );
+        unsigned int burstTime = (rand() % 20) + 1; // Randomly assigning burst time in ms
+
+        // Writing to the job.txt file
+        jobFile
+            << jobName << std::endl
+            << burstTime << std::endl;
+    }
+
+    // Properly close the job.txt file
+    jobFile.close();
+}
+
+
+void createJobFileTesting(unsigned int numJobs)
+{
+    // Create a file call "job.txt" to write to
+    std::ofstream jobFile("job.txt");
+
+    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+    srand(seed); // Create seed for random burstTimes
+
+    // Creating each job as many as numJobs
+    for (int job = 1; job <= numJobs; job++)
+    {
+        // jobName = "Job1", "Job2", "Job3", etc
+        std::string jobName = "Job" + ((job < 10)? "0" + std::to_string(job) : std::to_string(job) );
+        unsigned int burstTime = (rand() % 20) + 1; // Randomly assigning burst time in ms
 
         // Writing to the job.txt file
         jobFile
@@ -211,6 +262,64 @@ void display_RR_2_info(const std::vector<std::string>& jobNames,
 }
 
 
+void display_RR_5_info(const std::vector<std::string>& jobNames,
+    const std::vector<unsigned int>& burstTimes)
+{
+    // Display the headers
+    headers();
+
+    std::vector<std::string> jobsLeft(jobNames);    // All the jobs that hasn't finished
+    std::vector<unsigned int> times(burstTimes);    // Copy of burstTimes
+
+    unsigned int startTime = 0;             // Initially start at 0
+    unsigned int endTime = 0;               // Set to 0 by default
+
+    // Will loop until jobLeft size = 0
+    while (true)
+    {
+        for (int idx = 0; idx < jobsLeft.size();) // Loop what jobs are left
+        {
+            std::string currentJob = jobsLeft[idx]; // What is the current job name
+            bool jobFinished = false;   // Track what jobs are completed
+
+            std::cout
+                << "\t| " << jobsLeft[idx] << " | "
+                << "    " << startTime << spacing1(startTime);
+
+            // if the burst time is greater than 2 then subtract only 2 else subtract the burst time
+            if (times[idx] > 5)
+            {
+                endTime += 5;   // Increment the burst time by 2
+                times[idx] -= 5;
+                idx++;
+            }
+            else
+            {
+                endTime += times[idx];
+                jobsLeft.erase(jobsLeft.begin() + idx); // Remove job since it's complete
+                times.erase(times.begin() + idx); // burst time is at 0, remove
+                jobFinished = true; // Job is now complete set to true
+            }
+
+            std::cout << "   " << endTime << spacing2(endTime);
+
+            if (jobFinished)
+                std::cout << currentJob << " completed @ " << endTime << spacing3(endTime);
+            else
+                std::cout << "                       |" << std::endl;
+
+            startTime = endTime;
+        }
+
+        if (jobsLeft.size() <= 0)
+            break;
+    }
+
+    std::cout << "\t+-------+------------+----------+------------------------+";
+    std::cout << std::endl << std::endl;
+}
+
+
 void headers()
 {
     std::string headers[] = { "Job #", "Start Time", "End Time", "Job Completion" };
@@ -254,7 +363,7 @@ std::string spacing3(unsigned int size)
 // function for generateTable()
 void dashRows(unsigned int size)
 {
-    std::cout << "\t+-";
+    std::cout << "\t+---------------+-";
     for (int idx = 0; idx < size; idx++)
         std::cout << "------";
     std::cout << "+" << std::endl;
@@ -263,7 +372,8 @@ void dashRows(unsigned int size)
 
 void displayJobNames(const std::vector<std::string>& jobNames, unsigned int size)
 {
-    std::cout << "\t| ";
+    std::cout << "\t| Job #         ";
+    std::cout << "| ";
     for (int idx = 0; idx < size; idx++)
         std::cout << jobNames[idx] << " ";
     std::cout << "|" << std::endl;
@@ -272,7 +382,8 @@ void displayJobNames(const std::vector<std::string>& jobNames, unsigned int size
 
 void displayBurstTimes(const std::vector<unsigned int>& burstTimes, unsigned int size)
 {
-    std::cout << "\t|";
+    std::cout << "\t| BurstTime (ms)";
+    std::cout << "|";
     for (int idx = 0; idx < size; idx++)
         std::cout << "   " << burstTimes[idx] << ((burstTimes[idx] < 10)? "  " : " " );
     std::cout << " |" << std::endl;
@@ -281,6 +392,18 @@ void displayBurstTimes(const std::vector<unsigned int>& burstTimes, unsigned int
 
 // This function add all the elements in a vector
 float accumulate(const std::vector<unsigned int>& times)
+{
+    float sum = 0.0;
+
+    for (auto iter: times)
+        sum += iter;
+
+    return sum;
+}
+
+
+// This function add all the elements in a vector
+float accumulate(const std::vector<float>& times)
 {
     float sum = 0.0;
 
@@ -303,6 +426,13 @@ void ceil(float& number)
         float remain = 1 - decimal;
         number += remain;   // Will round up for us
     }
+}
+
+
+void round(float& number)
+{
+    unsigned int z = ( number + 0.005 ) * 100;
+    number = z / 100.0;
 }
 
 

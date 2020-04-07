@@ -1,5 +1,11 @@
 CC=g++
 
-compile:
-	@reset
-	@$(CC) main.cpp -o main && ./main
+
+compile-main:
+	@clear
+	@$(CC) main.cpp -o Job_Scheduler && ./Job_Scheduler
+
+
+save-output:
+	@clear
+	@$(CC) main.cpp -o Job_Scheduler && ./Job_Scheduler > Output.txt
